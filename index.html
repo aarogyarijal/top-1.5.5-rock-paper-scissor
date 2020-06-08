@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <script>
+            game();
+            function computerPlay(){
+                let randomizedNum = Math.random()*3
+                console.log(randomizedNum);
+                if(randomizedNum<=1){
+                    console.log("Rock")
+                    return "ROCK";
+                    
+                }
+                else if(randomizedNum<=2){
+                    console.log("Paper")
+                    return "PAPER"; 
+                }
+                else{
+                    console.log("Scissor")
+                    return "SCISSOR";
+                }
+            }
+            function play(computerSelection, playerSelection){
+                playerSelectionhc=playerSelection.toUpperCase()
+                computerSelectionhc=computerSelection.toUpperCase()
+                console.log(`selections:Computer->${computerSelectionhc}----Player->${playerSelectionhc}`)
+                if(computerSelectionhc==="ROCK" && playerSelectionhc==="PAPER"){
+                    console.log("Yayy! You Win!")
+                    return "Player";
+                }else if(computerSelectionhc==="PAPER" && playerSelectionhc==="SCISSOR"){
+                    console.log("Yayy! You Win!")
+                    return "Player";
+                }else if(computerSelectionhc==="SCISSOR" && playerSelectionhc==="ROCK"){
+                    console.log("Yayy! You Win!")
+                    return "Player";
+                }else if(computerSelectionhc===playerSelectionhc){
+                    console.log("Argg!! A Draw")
+                    return "Draw";
+                }
+                else{
+                    console.log("Ahh! Computer Wins!")
+                    return "Computer";    
+                }
+            }
+            function game(){
+                let playerScore = 0;
+                let computerScore = 0;
+            for(let i=1, round=0; i<=5; i++){
+                round++
+                computerSelection = computerPlay()
+                playerSelection=prompt("Rock, Paper or Scissor?")
+                let results = play(computerSelection, playerSelection)
+                if(results==="Player"){
+                    playerScore++
+                }
+                else if(results==="Computer"){
+                    computerScore++
+                }
+                else{
+                    i--
+                }
+                console.log(`ROUND ${round}--Computer:${computerScore}  Player:${playerScore}`)
+            }
+            
+        }
+        </script>
+    </head>
+</html>
