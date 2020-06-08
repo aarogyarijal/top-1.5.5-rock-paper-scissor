@@ -7,63 +7,83 @@
             function computerPlay(){
                 let randomizedNum = Math.random()*3
                 console.log(randomizedNum);
+
                 if(randomizedNum<=1){
-                    console.log("Rock")
+                    console.log("Rock");
                     return "ROCK";
                     
                 }
                 else if(randomizedNum<=2){
-                    console.log("Paper")
+                    console.log("Paper");
                     return "PAPER"; 
                 }
                 else{
-                    console.log("Scissor")
+                    console.log("Scissor");
                     return "SCISSOR";
                 }
             }
+
             function play(computerSelection, playerSelection){
-                playerSelectionhc=playerSelection.toUpperCase()
-                computerSelectionhc=computerSelection.toUpperCase()
+
+                playerSelectionhc=playerSelection.toUpperCase();
+                computerSelectionhc=computerSelection.toUpperCase();
+
                 console.log(`selections:Computer->${computerSelectionhc}----Player->${playerSelectionhc}`)
+                alert(`selections:Computer->${computerSelectionhc}----Player->${playerSelectionhc}`)
+
                 if(computerSelectionhc==="ROCK" && playerSelectionhc==="PAPER"){
-                    console.log("Yayy! You Win!")
+                    console.log("Yayy! You Win!");
+                    alert("Yayy! You Win!");
                     return "Player";
                 }else if(computerSelectionhc==="PAPER" && playerSelectionhc==="SCISSOR"){
-                    console.log("Yayy! You Win!")
+                    console.log("Yayy! You Win!");
+                    alert("Yayy! You Win!");
                     return "Player";
                 }else if(computerSelectionhc==="SCISSOR" && playerSelectionhc==="ROCK"){
-                    console.log("Yayy! You Win!")
+                    console.log("Yayy! You Win!");
+                    alert("Yayy! You Win!");
                     return "Player";
                 }else if(computerSelectionhc===playerSelectionhc){
-                    console.log("Argg!! A Draw")
+                    console.log("Argg!! A Draw");
+                    alert("Argg!! A Draw");
                     return "Draw";
                 }
                 else{
-                    console.log("Ahh! Computer Wins!")
+                    console.log("Ahh! Computer Wins!");
+                    alert("Ahh! Computer Wins!");
                     return "Computer";    
                 }
+
             }
             function game(){
                 let playerScore = 0;
                 let computerScore = 0;
-            for(let i=1, round=0; i<=5; i++){
-                round++
-                computerSelection = computerPlay()
-                playerSelection=prompt("Rock, Paper or Scissor?")
-                let results = play(computerSelection, playerSelection)
-                if(results==="Player"){
-                    playerScore++
+
+                for(let i=1, round=0; i<=5; i++){
+                    round++;
+                    computerSelection = computerPlay();
+                    playerSelection=prompt("Rock, Paper or Scissor?");
+
+                    let results = play(computerSelection, playerSelection);
+                    if(results==="Player"){
+                        playerScore++;
+                    }
+                    else if(results==="Computer"){
+                        computerScore++;
+                    }
+                        else{
+                        i--;
+                    }
+
+                    console.log(`ROUND ${round}--Computer:${computerScore}  Player:${playerScore}`)
+                    alert(`ROUND ${round}--Computer:${computerScore}  Player:${playerScore}`)
                 }
-                else if(results==="Computer"){
-                    computerScore++
+                if(computerScore>playerScore){
+                    alert("Computer Wins! Reload Page to Play Again.")
+                }else if(computerScore<playerScore){
+                    alert("Hurray! You Win! Reload Page to Play Again.")
                 }
-                else{
-                    i--
-                }
-                console.log(`ROUND ${round}--Computer:${computerScore}  Player:${playerScore}`)
             }
-            
-        }
         </script>
     </head>
 </html>
