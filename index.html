@@ -6,7 +6,6 @@
             game();
             function computerPlay(){
                 let randomizedNum = Math.random()*3
-                console.log(randomizedNum);
 
                 if(randomizedNum<=1){
                     console.log("Rock");
@@ -23,10 +22,7 @@
                 }
             }
 
-            function play(computerSelection, playerSelection){
-
-                playerSelectionhc=playerSelection.toUpperCase();
-                computerSelectionhc=computerSelection.toUpperCase();
+            function play(computerSelectionhc, playerSelectionhc){
 
                 console.log(`selections:Computer->${computerSelectionhc}----Player->${playerSelectionhc}`)
                 alert(`selections:Computer->${computerSelectionhc}----Player->${playerSelectionhc}`)
@@ -63,8 +59,15 @@
                     round++;
                     computerSelection = computerPlay();
                     playerSelection=prompt("Rock, Paper or Scissor?");
+                    playerSelectionhc=playerSelection.toUpperCase();
+                    while(playerSelectionhc != "ROCK" && playerSelectionhc != "PAPER" && playerSelectionhc != "SCISSOR"){
+                        alert("Invalid Input, Press 'OK' to Try Again")
+                        playerSelection=prompt("Rock, Paper or Scissor?");
+                        playerSelectionhc=playerSelection.toUpperCase();
+                    }
+                    computerSelectionhc=computerSelection.toUpperCase();
 
-                    let results = play(computerSelection, playerSelection);
+                    let results = play(computerSelectionhc, playerSelectionhc);
                     if(results==="Player"){
                         playerScore++;
                     }
