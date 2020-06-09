@@ -79,9 +79,13 @@
                     alert(`ROUND ${round}--Computer:${computerScore}  Player:${playerScore}`)
                 }
                 if(computerScore>playerScore){
-                    alert("Computer Wins! Reload Page to Play Again.")
+                    if(confirm("Computer Wins! Press 'OK' to Play Again.")){
+                        game()
+                    }
                 }else if(computerScore<playerScore){
-                    alert("Hurray! You Win! Reload Page to Play Again.")
+                    if(confirm("Hurray! You Win! Press 'OK' to Play Again.")){
+                        game()
+                    }
                 }
             }
         </script>
